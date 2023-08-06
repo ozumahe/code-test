@@ -78,6 +78,29 @@ function App() {
     }
   };
 
+  const findDuplicatedUserName2 = (userNametoCheck: string) => {
+    let userCounts: { [userName: string]: number } = {};
+
+    users.forEach((user) => {
+      if (userCounts[user.userName]) {
+        userCounts[user.userName]++;
+      } else {
+        userCounts[user.userName] = 1;
+      }
+    });
+
+    for (const userName in userCounts) {
+      if (Object.prototype.hasOwnProperty.call(userCounts, userName)) {
+        const count = userCounts[userNametoCheck];
+        if (count > 1) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  };
+
   return (
     <div className="app" style={{}}>
       {users.map(({ id, userName, phoneNumber }) => (
