@@ -41,8 +41,6 @@ function App() {
     },
   ]);
 
-  //How can you make it more efficient? so it does not calculate duplicates for each time for every user.
-
   const findDuplicatedUserName = (userName: string) => {
     let duplicatedUsers = [];
 
